@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("https://cdn.pixabay.com/photo/2015/05/15/14/47/computer-768696__340.jpg");
+  /* background-color: rgba(228, 236, 236, 0.815); */
+}
+
+.login {
+  height: auto;
+  background-size: cover;
+  width: auto;
+  background-image: url("https://cdn.pixabay.com/photo/2014/05/03/00/45/computer-336628__340.jpg");
+  background-position: 50% 50%;
+}
+.create {
+  height: auto;
+  background-size: cover;
+  width: auto;
+  background-image: url("https://cdn.pixabay.com/photo/2015/05/15/14/38/computer-768608__340.jpg");
+  background-position: 50% 50%;
+}
+.edit {
+  height: auto;
+  background-size: cover;
+  width: auto;
+  background-image: url("https://cdn.pixabay.com/photo/2016/11/29/06/18/home-office-1867759__340.jpg");
+  background-position: 50% 50%;
+}
+.home {
+  height: auto;
+  background-size: cover;
+  width: auto;
+  background-image: url("https://cdn.pixabay.com/photo/2016/02/17/15/37/laptop-1205256__340.jpg");
+  background-position: 50% 50%;
+}
+.manage {
+  height: auto;
+  background-size: cover;
+  width: auto;
+  background-image: url("https://cdn.pixabay.com/photo/2016/02/17/15/37/laptop-1205256__340.jpg");
+  background-position: 50% 50%;
+}

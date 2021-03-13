@@ -1,0 +1,18 @@
+mat-card {
+  max-width: 400px;
+  margin: 9em auto;
+  text-align: center;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.navbar {
+  background-color: rgba(173, 177, 206, 0.815);
+}
+
+.error {
+  font-size: small;
+  color: red;
+}

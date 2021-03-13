@@ -1,0 +1,152 @@
+
+  
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <a class="navbar-brand" href="https://www.bigsteptech.com/company/about-bigstep">
+        <img src="https://www.agora.io/en/wp-content/uploads/2019/06/Logo-BigStep.png" width="130" height="40" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">Creators <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/create-invoice" routerLinkActive="active">Create invoice</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/manage-invoice" routerLinkActive="active">Manage invoice</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="/home" routerLinkActive="active">Creators</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout mr-auto" (click)="onLogOut()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav> -->
+
+    <button mat-stroked-button class="createButton" color="primary" routerLink="/create-invoice" float-right> <i class="fa fa-plus" style="font-size:24px"></i> New Create-invoice</button>
+  
+  <div class="mat-elevation-z8 container">
+
+   
+    <div class="col-md-12">
+      <input type="search" class="search" placeholder="search invoice" (keyup)="search($event)">
+    </div>
+      <table mat-table [dataSource]="dataSource" matSort>
+      
+        <!-- checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                       >
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                       >
+            </mat-checkbox>
+          </td>
+        </ng-container>
+        <!-- Name Column -->
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.invoiceDate.slice(0,10)}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="invoice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Invoice </th>
+          <td mat-cell *matCellDef="let element"> {{element.invoiceNumber}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="recipient">
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Recipient </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="creator">
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Creator </th>
+          <td mat-cell *matCellDef="let element"> {{element.user.name}} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container> -->
+
+        
+    
+          <!-- Get Details -->
+          <ng-container matColumnDef="actions" class="actions">
+              <th mat-header-cell *matHeaderCellDef  mat-sort-header> actions </th>
+              <td mat-cell *matCellDef="let element">  
+                <button mat-button color="primary" (click)="onEdit(element._id)">Edit</button> |  
+                  <button mat-button color="warn" (click)="onDelete(element._id)">delete</button>|
+                
+                  <button mat-button color="accent" (click)="onDownload(element._id)">Download</button>
+                  
+                </td>
+            </ng-container>
+       
+            <ng-container matColumnDef="amount" class="actions">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header> Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.totalPrice}} </td>
+              </ng-container>
+         
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+
+      </table>
+    
+
+      <mat-paginator #paginator
+      showFirstLastButtons
+      [pageIndex]="0" 
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]">
+     </mat-paginator>
+
+
+
+        
+    <br><br><br><br><br><br><br>
+    <hr>
+    <footer class="footer">
+    <div class="col-md-12 ml-5">
+      <div class="row">
+      <div class="col-md-6">
+        <P><b>BigStep Technologies Private Limited.</b> </P>
+        <p>Judicial Complex Sector 15</p>
+        <p>Gurgaon-122001,Haryana,India</p>
+        <p>Email:info@bigsteptech.com</p>
+        <p>CIN:U72200HR2009PTC038717</p>
+      </div>
+      <div class="col-md-6 pl-5">
+        <p>2nd Floor,SCO-63,</p>
+        <p>Phone:- +91-9136773059</p>
+        <p>http://www.bigsteptech.com</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  

@@ -1,0 +1,107 @@
+
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+     <span><a routerLink="/home">HOME</a></span>
+     <span class="spacer"></span>
+     <a mat-button (click)="onLogOut()">Logout</a>
+     <a mat-button routerLink="/create-invoice">create invoice</a>
+     <a mat-button routerLink="/manage-invoice">manage invoice</a>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <a class="navbar-brand" href="https://www.bigsteptech.com/company/about-bigstep">
+    <img src="https://www.agora.io/en/wp-content/uploads/2019/06/Logo-BigStep.png" width="130" height="40" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Creators <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/create-invoice" routerLinkActive="active">Create invoice</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/manage-invoice" routerLinkActive="active">Manage invoice</a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/home" routerLinkActive="active">Creators</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link logout mr-auto" (click)="onLogOut()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+
+<div class="image">
+<div class="mat-elevation-z8 container">
+  <button mat-raised-button class="createButton" color="primary" (click)='Create()'>+ New Creator</button>
+    <table mat-table [dataSource]="dataSource">
+    
+ <!-- checkbox Column -->
+ <!-- <ng-container matColumnDef="select">
+  <th mat-header-cell *matHeaderCellDef>
+    <mat-checkbox (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()"
+               >
+    </mat-checkbox>
+  </th>
+  <td mat-cell *matCellDef="let row">
+    <mat-checkbox (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)"
+               >
+    </mat-checkbox>
+  </td>
+</ng-container> -->
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+  
+        <!-- Get Details -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> actions </th>
+            <td mat-cell *matCellDef="let element">  
+              <button mat-stroked-button color="primary" (click)="onEdit(element._id)">Edit</button> |  
+                <button mat-stroked-button color="warn" (click)="onDelete(element._id)">delete</button> </td>
+          </ng-container>
+      
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    <mat-paginator #paginator
+    showFirstLastButtons
+    [pageIndex]="0" 
+    [pageSize]="10"
+    [pageSizeOptions]="[10, 15, 25, 100]">
+   </mat-paginator>
+  </div>
+</div>
+<br><br><br><br><br><br>

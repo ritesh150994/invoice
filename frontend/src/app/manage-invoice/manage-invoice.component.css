@@ -1,0 +1,50 @@
+.container {
+  margin-top: 40px;
+}
+
+table {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  background-color: rgba(230, 235, 235, 0.952);
+}
+
+/* .actions {
+  padding: 15px;
+  border-bottom-width: 4px;
+}
+
+.amount {
+  padding-right: 0;
+} */
+
+.createButton {
+  float: right;
+  margin-top: -50px;
+  margin-right: 110px;
+}
+
+.search {
+  margin-top: 20px;
+  margin-left: 40%;
+}
+
+.footer {
+  background-color: rgba(230, 235, 235, 0.952);
+}
+
+mat-paginator {
+  background-color: rgba(230, 235, 235, 0.952);
+}
+
+.mr-auto {
+  margin-left: 600px;
+}
+
+.navbar {
+  background-color: rgba(228, 236, 236, 0.815);
+}
+
+.container {
+  margin-top: 200px;
+}
